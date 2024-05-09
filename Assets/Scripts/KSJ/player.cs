@@ -29,7 +29,10 @@ public class player : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             Vector3 temp = gameObject.transform.position;
             temp.x += speed * Time.deltaTime * (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - mousePositionX);
-            gameObject.transform.position = temp;
+            if (temp.x < 2.66 && temp.x > -2.66)
+            {
+                gameObject.transform.position = temp;
+            }
             mousePositionX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
         }
 
@@ -60,7 +63,9 @@ public class player : MonoBehaviour
         }
         else if (collision.gameObject.name.Contains("coin") == true)
         {
-            Debug.Log("∞ÒµÂ»πµÊ");
+            Debug.Log("ƒ⁄¿Œ»πµÊ");
+            //GameManager.Instance.coin += æÛ∏∂
+            Destroy(collision.gameObject);
         }
         else if (collision.gameObject.name.Contains("monster") == true)
         {
