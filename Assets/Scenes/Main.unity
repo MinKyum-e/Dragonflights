@@ -488,10 +488,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 797153337}
   - {fileID: 398142205}
   - {fileID: 1870434999}
   - {fileID: 97464190}
-  - {fileID: 797153337}
   m_Father: {fileID: 1379998320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -814,6 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   ui_group: {fileID: 608842349}
+  distance: 0
 --- !u!4 &1694462270
 Transform:
   m_ObjectHideFlags: 0
