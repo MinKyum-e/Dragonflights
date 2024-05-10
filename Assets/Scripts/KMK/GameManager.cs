@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public enum GameState
 {
+    GAME_IDLE,
     GAME_PLAY,
     GAME_PAUSE,
     GAME_OVER,
@@ -26,8 +27,6 @@ public class GameManager : MonoBehaviour
 
 
     public GameState gameState = GameState.GAME_PLAY;
-    public GameObject[] hearts;
-    private int heart_idx = 1;
 
     private UIGroup ui_group = null;
 
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
     private int _coin;
     private int _score;
     private int _max_score;
-    public float distance;
+    public int distance;
 
     private void Awake()
     {
@@ -57,6 +56,7 @@ public class GameManager : MonoBehaviour
         coin = 0;
         score = 0;
         distance = 0;
+        gameState = GameState.GAME_PLAY;
     }
 
 
@@ -68,10 +68,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        score = 100000;
-        distance += Time.deltaTime*100;
+        distance += (int)(Time.deltaTime*100f);
         switch(gameState)
         {
+            case GameState.GAME_IDLE:
+                break;
             case GameState.GAME_PLAY:
                 GamePlay();
                 break;
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
     private void GamePlay()
     {
         Time.timeScale = 1;
+        gameState = GameState.GAME_IDLE;
     }
 
     private void GamePause()
@@ -101,21 +103,11 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Max_Score", score);
         }
-        PlayerPrefs.SetInt("Coin", coin + PlayerPrefs.GetInt("Coin", 0));
-        PlayerPrefs.SetInt("CurCoin", coin);
+        PlayerPrefs.SetInt("Gold", coin + PlayerPrefs.GetInt("Gold", 0));
+        PlayerPrefs.SetInt("CurGold", coin);
         PlayerPrefs.SetInt("Distance", (int)distance);
         PlayerPrefs.SetInt("Score", score);
         SceneManager.LoadScene("Result");
-    }
-
-    public void HeartChange()
-    {
-        if(heart_idx >=0)
-        {
-            hearts[heart_idx].SetActive(false);
-            heart_idx--;
-        }
-
     }
 
 
@@ -136,7 +128,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _score = value;
-            if(ui_group != null)
+            if (ui_group != null)
                 ui_group.scoreText.text = instance._score.ToString();
         }
     }

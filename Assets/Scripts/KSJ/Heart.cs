@@ -22,6 +22,13 @@ public class Heart : MonoBehaviour
             starting_x += 0.5f;
         }
     }
+    private void Update()
+    {
+        if(heart == 0)
+        {
+            GameManager.Instance.gameState = GameState.GAME_OVER;
+        }
+    }
 
     public void HeartBreak() 
     {

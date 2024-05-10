@@ -60,6 +60,10 @@ public class MonsterSpawnManager : MonoBehaviour
         {
             monster.GetComponent<EnemyCtrl>().Atk = (int)enemytemp["Atk"];
         }
+        if (enemy[index].ContainsKey("Score"))
+        {
+            monster.GetComponent<EnemyCtrl>().score = (int)enemytemp["Score"];
+        }
 
     }
 }

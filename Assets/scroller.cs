@@ -14,6 +14,6 @@ public class scroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sr.material.mainTextureOffset += Vector2.down * Time.deltaTime * 0.5f;
+        sr.material.mainTextureOffset += Vector2.up * Time.deltaTime * 0.5f;
     }
 }

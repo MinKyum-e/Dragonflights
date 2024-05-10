@@ -9,6 +9,7 @@ public class EnemyCtrl: MonoBehaviour
     public int HP = 10;
     public int curHP;
     public int Atk = 2;
+    public int score;
     public int curAtk;
     public PolygonCollider2D enemycol;
     public GameObject coin;
@@ -31,7 +32,7 @@ public class EnemyCtrl: MonoBehaviour
            GameObject Coin = Instantiate(coin);
            Coin.transform.position = this.transform.position;
            Destroy(gameObject);
-           //GameManager.Instance.score += 10;
+            GameManager.Instance.score += score;
         }
     }
 
