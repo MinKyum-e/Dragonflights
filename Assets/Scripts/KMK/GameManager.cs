@@ -26,10 +26,12 @@ public class GameManager : MonoBehaviour
 
 
     public GameState gameState = GameState.GAME_PLAY;
+    public GameObject[] hearts;
+    private int heart_idx = 1;
 
     private UIGroup ui_group = null;
 
-    //private 변수는 _ 빼고 접근하면 됨 ex) coin = 100;
+    //private 변수참조할때 _ 빼고 접근하면 됨 ex) coin = 100;
     private int _coin;
     private int _score;
     private int _max_score;
@@ -106,6 +108,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Result");
     }
 
+    public void HeartChange()
+    {
+        if(heart_idx >=0)
+        {
+            hearts[heart_idx].SetActive(false);
+            heart_idx--;
+        }
+
+    }
 
 
     public int coin

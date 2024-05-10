@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class player : MonoBehaviour
 {
-    int hp = 2;
 
     float mousePositionX = 0;
     float speed = 300;
@@ -13,10 +12,13 @@ public class player : MonoBehaviour
     public GameObject m_BulletObj;
     float m_ShootCool = 0.12f;
 
+    public GameObject heartUI;
+
     // Start is called before the first frame update
     void Start()
     {
         Camera Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
     }
 
     // Update is called once per frame
@@ -58,8 +60,7 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("meteor") == true)
         {
-            hp -= 1;
-            Debug.Log(hp);
+            heartUI.GetComponent<Heart>().HeartBreak();
         }
         else if (collision.gameObject.name.Contains("coin") == true)
         {
@@ -69,8 +70,7 @@ public class player : MonoBehaviour
         }
         else if (collision.gameObject.name.Contains("Enemy") == true)
         {
-            hp -= 1;
-            Debug.Log(hp);
+            heartUI.GetComponent<Heart>().HeartBreak();
         }
     }
 }
