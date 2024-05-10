@@ -67,7 +67,7 @@ public class player : MonoBehaviour
             //GameManager.Instance.coin += ¾ó¸¶
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.name.Contains("monster") == true)
+        else if (collision.gameObject.name.Contains("Enemy") == true)
         {
             hp -= 1;
             Debug.Log(hp);

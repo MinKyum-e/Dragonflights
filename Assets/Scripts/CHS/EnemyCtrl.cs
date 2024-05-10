@@ -10,13 +10,11 @@ public class EnemyCtrl: MonoBehaviour
     public int curHP;
     public int Atk = 2;
     public int curAtk;
-    public GameObject Enemy;
     public PolygonCollider2D enemycol;
-
+    public GameObject coin;
     // Start is called before the first frame update
     void Start()
     {
-        Enemy = GetComponent<GameObject>();
         enemycol = GetComponent<PolygonCollider2D>();
         curHP = HP;
         curAtk = Atk;
@@ -30,7 +28,10 @@ public class EnemyCtrl: MonoBehaviour
 
         if(curHP <= 0)
         {
-            Destroy(Enemy);
+           GameObject Coin = Instantiate(coin);
+           Coin.transform.position = this.transform.position;
+           Destroy(gameObject);
+           //GameManager.Instance.score += 10;
         }
     }
 
@@ -38,9 +39,11 @@ public class EnemyCtrl: MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) //뭔가 충돌 되었을 때 발생하는 함수
     {
        
-        if (col.gameObject.name.Contains("Bullet") == true)
+        if (col.gameObject.name.Contains("bullet") == true)
         {
-            Hit(curAtk);
+            Debug.Log("아야!");
+            Hit(col.gameObject.GetComponent<bullet>().damage);
+            
             Destroy(col.gameObject);
         }
 

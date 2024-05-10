@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2532780578110079874}
   - component: {fileID: 1353590715057257255}
   - component: {fileID: 8324357546447113609}
+  - component: {fileID: 6107675802272729499}
   m_Layer: 0
   m_Name: Enemy_2
   m_TagString: Untagged
@@ -115,7 +116,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -185,3 +186,31 @@ MonoBehaviour:
   curAtk: 0
   Enemy: {fileID: 6893353751032812080}
   enemycol: {fileID: 1353590715057257255}
+  coin: {fileID: 3347247231270820350, guid: d8c77e6ff02618946988c512525c4fde, type: 3}
+--- !u!50 &6107675802272729499
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893353751032812080}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
