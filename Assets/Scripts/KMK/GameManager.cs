@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        distance += (int)(Time.deltaTime*100f);
+        distance += (int)(Time.deltaTime*500f);
         switch(gameState)
         {
             case GameState.GAME_IDLE:
