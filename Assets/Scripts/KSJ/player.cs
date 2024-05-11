@@ -62,7 +62,7 @@ public class player : MonoBehaviour
         {
             heartUI.GetComponent<Heart>().HeartBreak();
         }
-        else if (collision.gameObject.name.Contains("Coin") == true)
+        else if (collision.gameObject.name.Contains("coin") == true)
         {
             Debug.Log("ƒ⁄¿Œ»πµÊ");
             collision.GetComponent<CoinObj>().GetCoin();

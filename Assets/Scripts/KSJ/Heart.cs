@@ -32,6 +32,7 @@ public class Heart : MonoBehaviour
 
     public void HeartBreak() 
     {
+        Debug.Log("내가 아야!");
         Destroy(transform.GetChild(heart - 1).gameObject);
         heart--;
         if (heart <= 0) {
